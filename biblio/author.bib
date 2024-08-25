@@ -19,99 +19,128 @@
 	year = {2024},
 	keywords = {},
 	abstract = {Процессоры с архитектурой ARM все чаще применяются в облачных и высокопроизводительных вычислениях, для которых важно использовать аппаратные ресурсы наиболее эффективным образом, в связи с чем возрастает роль компиляторов и оптимизаций кода. На производительность выполнения программы существенное влияние оказывают операции с памятью. В наборе команд AArch64 имеются инструкции, позволяющие выполнять доступ в память к нескольким последовательным значениям (LDP, LDPSW, STP), они используются в локальных оптимизациях компиляторов для замены двух последовательных операций доступа в память. В этой работе продемонстрировано, что такая замена может быть неэффективной, если целью оптимизации не является уменьшение объема кода. Предложен алгоритм оптимизации, выполняющей поиск и замену двумя операциями чтения тех инструкций LDP (LDPSW), часть данных для которых может быть получена из очереди на запись в память. Оценка производительности показывает эффективность оптимизации, значительное ускорение получено на тестах rapidjson (5% при запуске на одном ядре и 3% при запуске на всех ядрах), tpcc (16% на одном ядре) и tpch (2% на всех ядрах).},
-	url = {http://sitito.cs.msu.ru/index.php/SITITO/article/view/1067}
+	url = {http://sitito.cs.msu.ru/index.php/SITITO/article/view/1067},
+	authorvak = {true}
+}
+
+@CONFERENCE{confmiptlazy,
+	author = {Черноног, В. В. and Егоров, И. М.},
+	title = {Векторизация ленивых вычислений в линейном коде },
+	booktitle = {ТРУДЫ 66-й Всероссийской
+	научной конференции МФТИ. Радиотехника и компьютерные технологии.},
+	year = {2024},
+	language = {russian},
+	authorconf = {true},
+}
+
+@CONFERENCE{confmiptcrypto,
+	author = {Трусов, А. В. and Царицын, М. В. and Черноног, В. В.},
+	title = {Система защищенной передачи информации с биометрическими сессионными ключами},
+	booktitle = {ТРУДЫ 61-й Всероссийской
+	научной конференции МФТИ. Радиотехника и компьютерные технологии.},
+	year = {2018},
+	language = {russian},
+	authorconf = {true},
+}
+
+@CONFERENCE{confmiptml1,
+	author = {Черноног, В. В.},
+	title = {Применение алгоритмов машинного обучения в задаче региональной оптимизации в
+	системе бинарной трансляции},
+	booktitle = {ТРУДЫ 63-й Всероссийской
+	научной конференции МФТИ. Радиотехника и компьютерные технологии.},
+	year = {2020},
+	language = {russian},
+	authorconf = {true},
+}
+
+@CONFERENCE{confmiptrt,
+	author = {Трусов, А. В. and Черноног, В. В.},
+	title = {Оптимизация бинарных нейронных сетей для задачи распознавания образов в
+	реальном времени на микроконтроллерах с процессорами AVR},
+	booktitle = {ТРУДЫ 63-й Всероссийской
+	научной конференции МФТИ. Радиотехника и компьютерные технологии.},
+	year = {2020},
+	language = {russian},
+	authorconf = {true},
 }
 
 
-@inproceedings{confbib1,
-  author = {Фамилия, И. О.},
-  title = {название тезисов конференции},
-  booktitle = {Название сборника},
-  year = {2015},
-  language = {russian},
-  authorconf = {true},
-}
 
-@CONFERENCE{confbib2,
-  author = {Фамилия, И. О.},
-  title = {название тезисов конференции},
-  booktitle = {Название сборника},
-  year = {2015},
-  language = {russian},
-  authorconf = {true},
-}
 
-@ARTICLE{bib1,
-  author = {Фамилия, И. О.},
-  title = {Название статьи},
-  journal = {Журнал},
-  year = {2012},
-  volume = {1},
-  pages = {100},
-  language = {russian},
-  authorother = {true},
-  authorconf = {true},
-}
-
-@CONFERENCE{bib2,
-  author = {Фамилия, И. О.},
-  title = {название тезисов конференции},
-  booktitle = {Название сборника},
-  year = {2012},
-  language = {russian},
-  authorconf = {true},
-}
-
-@ARTICLE{scbib1,
-  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О.},
-  title = {Название статьи},
-  journal = {Журнал},
-  year = {2018},
-  volume = {2},
-  number = {1},
-  pages = {99--102},
-  language = {russian},
-  authorscopus = {true},
-  authorwos = {true},
-  addendum = {(Scopus, WoS)},
-}
-
-@ARTICLE{vakbib1,
-  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О.},
-  addendum = {(0,28~п.~л.; ВАК, WoS)},
-  title = {Название статьи},
-  journal = {Журнал},
-  year = {2013},
-  volume = {1},
-  number = {5},
-  pages = {100--120},
-  language = {russian},
-  authorvak = {true},
-  authorwos = {true},
-}
-
-@ARTICLE{vakbib2,
-  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О. and Фамилия4, И. О.},
-  addendum = {(0,33~п.~л.~/ 0,28~п.~л.; ВАК)},
-  title = {Название статьи},
-  journal = {Журнал},
-  year = {2014},
-  volume = {1},
-  number = {5},
-  pages = {100--120},
-  language = {russian},
-  authorvak = {true},
-}
-
-@ARTICLE{wosbib1,
-  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О.},
-  addendum = {(0,21~п.~л., WoS)},
-  title = {Название статьи},
-  journal = {Журнал},
-  year = {2011},
-  volume = {1},
-  number = {8},
-  pages = {105--120},
-  language = {russian},
-  authorwos = {true},
-}
+%
+%@ARTICLE{bib1,
+%  author = {Фамилия, И. О.},
+%  title = {Название статьи},
+%  journal = {Журнал},
+%  year = {2012},
+%  volume = {1},
+%  pages = {100},
+%  language = {russian},
+%  authorother = {true},
+%  authorconf = {true},
+%}
+%
+%@CONFERENCE{bib2,
+%  author = {Фамилия, И. О.},
+%  title = {название тезисов конференции},
+%  booktitle = {Название сборника},
+%  year = {2012},
+%  language = {russian},
+%  authorconf = {true},
+%}
+%
+%@ARTICLE{scbib1,
+%  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О.},
+%  title = {Название статьи},
+%  journal = {Журнал},
+%  year = {2018},
+%  volume = {2},
+%  number = {1},
+%  pages = {99--102},
+%  language = {russian},
+%  authorscopus = {true},
+%  authorwos = {true},
+%  addendum = {(Scopus, WoS)},
+%}
+%
+%@ARTICLE{vakbib1,
+%  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О.},
+%  addendum = {(0,28~п.~л.; ВАК, WoS)},
+%  title = {Название статьи},
+%  journal = {Журнал},
+%  year = {2013},
+%  volume = {1},
+%  number = {5},
+%  pages = {100--120},
+%  language = {russian},
+%  authorvak = {true},
+%  authorwos = {true},
+%}
+%
+%@ARTICLE{vakbib2,
+%  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О. and Фамилия4, И. О.},
+%  addendum = {(0,33~п.~л.~/ 0,28~п.~л.; ВАК)},
+%  title = {Название статьи},
+%  journal = {Журнал},
+%  year = {2014},
+%  volume = {1},
+%  number = {5},
+%  pages = {100--120},
+%  language = {russian},
+%  authorvak = {true},
+%}
+%
+%@ARTICLE{wosbib1,
+%  author = {Фамилия, И. О. and Фамилия2, И. О. and Фамилия3, И. О.},
+%  addendum = {(0,21~п.~л., WoS)},
+%  title = {Название статьи},
+%  journal = {Журнал},
+%  year = {2011},
+%  volume = {1},
+%  number = {8},
+%  pages = {105--120},
+%  language = {russian},
+%  authorwos = {true},
+%}
+%
