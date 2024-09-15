@@ -1,4 +1,77 @@
-\chapter{Примеры вставки листингов программного кода}\label{app:A}
+\chapter{Собираемые признаки, для задачи автоматического подбора вероятностей условного перехода} \label{app:A}
+\begin{table} [htbp]
+	\centering
+	\begin{threeparttable}% выравнивание подписи по границам таблицы
+		\caption{Признаки базового блока собранные в компиляторе GCC .}\label{op:pgo_geatures1}%
+		\begin{tabular}{| m{3cm} | m{1cm} |  m{9cm}l |}
+			\hline
+			\hline
+			\centering \textbf{Признак}			 & \centering  \textbf{Тип} &  \centering  \textbf{Описание} & \\
+			\hline
+			\centering num\_instr			 & \centering  Int & Количество инструкций в базовом блоке, & \\
+			&                 & в котором находится условный переход & \\
+			\hline
+			\centering num\_phis			 & \centering  Int &    Количество PHI-функций в базовом блоке, в котором находится условный переход & \\
+			\hline
+			\centering num\_loads			 & \centering  Int &    Количество загрузок из памяти в базовом блоке, в котором находится условный переход & \\
+			\hline
+			\centering num\_stores			 & \centering  Int &    Количество выгрузок в память в базовом блоке, в котором находится условный переход & \\
+			\hline
+			\centering num\_pred			 & \centering  Int &    Количество базовых блоков, управление из которых может перейти в базовый блок с условным переходом & \\
+			\hline
+			\centering num\_succ			 & \centering  Int &    Количество базовых блоков, управление в которые может перейти из базового блока с условным переходом & \\
+			\hline
+			\centering is\_entry			 & \centering  Bool &   Является ли базовый блок входом в текущую  функцию & \\
+			\hline
+			\hline
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+\begin{table} [htbp]
+	\centering
+	\begin{threeparttable}% выравнивание подписи по границам таблицы
+		\caption{Признаки условного перехода собранные в компиляторе GCC.}\label{op:pgo_geatures2}%
+		\begin{tabular}{| m{4cm} | m{2cm} |  m{9cm}l |}
+		\hline
+			\hline
+			\centering \textbf{Признак}			 & \centering  \textbf{Тип} &  \centering  \textbf{Описание} & \\
+			\hline
+			\centering lhs\_type			 & \centering  Int &   Тип левого операнда операции сравнения & \\
+			\hline
+			\centering rhs\_type			 & \centering  Int &    Тип правого операнда операции сравнения & \\
+			\hline
+			\centering is\_rhs\_const			 & \centering  Bool &    Является ли правый операнд сравнения константной величиной & \\
+			\hline
+			\centering is\_rhs\_zero			 & \centering  Bool &    Является ли правый операнд операции сравнения нулем & \\
+			\hline
+			\centering loop\_depth			 & \centering  Int &    Глубина цикловой вложенности базового блока, содержащего операцию сравнения & \\
+			\hline
+			\centering is\_loop\_header			 & \centering  Bool &    Находится ли операция сравнения в голове цикла  & \\
+			\hline
+			\centering else\_edge\_flags			 & \centering  Int &    Флаги ложной дуги & \\
+			\hline
+			\centering then\_edge\_flags			 & \centering  Int &    Флаги истиной дуги & \\
+			\hline
+			\centering dominates\_left			 & \centering  Bool &    Доминирует ли базовый блок с условием  базовый блок ложной дуги   & \\	
+			\hline
+			\centering dominates\_right			 & \centering  Bool &    Доминирует ли базовый блок с условием  базовый блок истинной дуги  & \\	
+			\hline
+			\centering dom\_by\_left			 & \centering  Bool &    Доминирует ли базовый блок ложной дуги базовый блок с условием  & \\	
+			\hline
+			\centering dom\_by\_right			 & \centering  Bool &    Доминирует ли базовый блок истинной дуги базовый блок с условием  & \\	
+			\hline
+			\centering current\_bb			 & \centering  Struct &    Признаки базового блока с условием, структура описана в таблице \ref{op:pgo_geatures1}  & \\	
+			\hline
+			\centering left\_bb			 & \centering  Struct &     Признаки ложного базового блока, структура описана в таблице \ref{op:pgo_geatures1} & \\	
+			\hline
+			\centering right\_bb			 & \centering  Struct &    Признаки истинного базового блока, структура описана в таблице \ref{op:pgo_geatures1} & \\	
+			\hline
+			\hline
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+\chapter{Примеры вставки листингов программного кода}\label{app:A1}
 
 Для крупных листингов есть два способа. Первый красивый, но в нём могут быть
 проблемы с поддержкой кириллицы (у вас может встречаться в~комментариях

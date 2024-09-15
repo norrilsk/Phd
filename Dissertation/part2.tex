@@ -609,3 +609,106 @@ if (arr[len] != const1 || arr[len +1] != const2
 
 
 \section{Автоматический подбор вероятностей условных переходов}  \label{op:mlpgo}
+
+В главе \ref{pr:pgo} обсуждались компиляторные оптимизации с использованием профиля. В рамках данной работы появилось желание получить улучшение производительности, сходное с оптимизациями с профилем, но без реального исполнения приложения во время компиляции. В компиляторе GCC  существует встроенная возможность компиляции с использованием профиля. Для такого эксперимента необходимо скомпилировать приложение с дополнительной опцией \textbf{-fprofile-generate}, затем запустить исполнение аппликации, после чего перекомпилировать с  дополнительной опцией \textbf{-fprofile-use}. В результате будет получено приложение скомпилированное с использование профиля. Замер производительности показывает среднее увеличение производительности в 5 \% (Таблица \ref{op:pgo1}), однако стоит отметить, что такой запуск практически недостижим в реальной жизни,  так как профиль собирался на тех же входных данных, на которых происходил замер производительности. Тем не менее присутствует значительный потенциал, который хотелось бы использовать.
+\begin{table} [htbp]
+	\centering
+	\begin{threeparttable}% выравнивание подписи по границам таблицы
+		\caption{Ускорение приложений CPUBEnch FP при компиляции с использованием профиля.}\label{op:pgo1}%
+		\begin{tabular}{| m{5cm} | m{8cm}l |}
+			\hline
+			\hline
+			\centering \textbf{Приложение}			 & \centering  \textbf{Ускорение} & \\
+			\hline
+			\centering lightgbm			 & \centering  0.95 & \\
+			\hline
+			\centering nektar			 & \centering 0.99   & \\
+			\hline
+			\centering cube			 & \centering 1.00  & \\
+			\hline
+			\centering openfoam			 & \centering 1.05   & \\
+			\hline
+			\centering lammps & \centering 1.06   & \\
+			\hline
+			\centering phenglei & \centering 1.06   & \\
+			\hline
+			\centering phyml 	& \centering  1.08  & \\
+			\hline
+			\centering povray 	& \centering  1.08  & \\
+			\hline
+			\centering gromacs 	& \centering  1.14  & \\
+			\hline
+			\centering   	& \centering    & \\
+			\hline
+			\centering Geomean 	& \centering  1.045  & \\
+			\hline
+			\hline
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+Ранее обсуждалась статья  \cite{rotem2021profile}, в которой была применена техника искусственного профиля. К сожалению, использовать их результат напрямую не получиться из-за сильного различия инфраструктуры  GCC и LLVM. Поэтому для начала была предпринята попытка повторить их результат. В качестве набора признаков для каждого условного перехода собирался набор признаков, описанный в таблице \ref{op:pgo_geatures2}. Оптимизация позволяет включить внутри компилятора проходы, которые обычно используются для оптимизаций с профилем (FDO). 
+
+Для сбора обучающей выборки был использован набор программ из пакета ExeBecnh \cite{armengol2022exebench}. Пакет содержит сотни маленьких приложений, которые можно быстро перкекомпилировать и собрать данные. Процесс сбора данных выглядит следующим образом (рисунок \ref{op:mlpgo1}): Набор обучающих данных компилируется  с использованием своего же профиля и в это время новый проход в компиляторе, названный \textbf{ipa-smart-profile}, собирает различную статическую информацию (таблица \ref{op:pgo_geatures2}) для каждого условного перехода внутри программы. 
+
+\begin{figure}[htbp]
+	\centering
+	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/FlowMLPGO1.drawio.svg}
+	\caption{Сбор данных для тренировки.}
+	\label{op:mlpgo1}
+\end{figure}
+
+Для обучения используется библиотека \textbf{XGBoost}, которая стросит решающие деревья над собранным набором данных, модель сохраняется в бинарном формате, для последующего использования в компиляторе (рисунок \ref{op:mlpgo2}).
+
+\begin{figure}[htbp]
+	\centering
+	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/FlowMLPGO2.drawio.svg}
+	\caption{Тренировка модели.}
+	\label{op:mlpgo2}
+\end{figure}
+Наконец, обученная модель может прогнозировать вероятности  переходов  без использования каких-либо данных профиля, а проход ipa-smart-profile включает оптимизации с профилем. Библиотека \textbf{XGBoost} также имеет C API, который позволяет интегрировать этап прогнозирования в проход без использования \textbf{Python}. Достаточно обучить модель один раз, чтобы потом использовать ее постоянно. Во время выполнения анализ собирает информацию об условных переходах  внутри программы в векторе признаков и передает ее функции \textbf{XGBoost} для прогнозирования.
+\begin{figure}[htbp]
+	\centering
+	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/FlowMLPGO3.drawio.svg}
+	\caption{Запуск модели во время компиляции целевого приложения.}
+	\label{op:mlpgo3}
+\end{figure}
+
+Однако полученные результаты с помощью такой модели оказались весьма плохими  (таблица \ref{op:pgo2}). Несмотря на улучшение производительности на тесте \textbf{gromacs} в 15 \%, большинство тестов показало деградацию  производительности. Методу требуется дальнейшее улучшение. Если вернуться к оригинальному исследованию  \cite{rotem2021profile}, то в нем обучение и замер производительности проходил на одних и тех же данных, что в нашей ситуации неприемлемо.  
+
+\begin{table} [htbp]
+	\centering
+	\begin{threeparttable}% выравнивание подписи по границам таблицы
+		\caption{Ускорение приложений CPUBEnch FP при компиляции с использованием предсказанного с помощью решающих деревьев  профиля .}\label{op:pgo2}%
+		\begin{tabular}{| m{5cm} | m{8cm}l |}
+			\hline
+			\hline
+			\centering \textbf{Приложение}			 & \centering  \textbf{Ускорение} & \\
+			\hline
+			\centering phyml			 & \centering  0.80 & \\
+			\hline
+			\centering cube			 & \centering 0.89   & \\
+			\hline
+			\centering nektar			 & \centering 0.90  & \\
+			\hline
+			\centering lightgbm			 & \centering 0.95   & \\
+			\hline
+			\centering lammps & \centering 0.98   & \\
+			\hline
+			\centering phenglei & \centering 0.99   & \\
+			\hline
+			\centering povray 	& \centering  1.00  & \\
+			\hline
+			\centering openfoam 	& \centering  1.04  & \\
+			\hline
+			\centering gromacs 	& \centering  1.15  & \\
+			\hline
+			\centering   	& \centering    & \\
+			\hline
+			\centering Geomean 	& \centering  0.96  & \\
+			\hline
+			\hline
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+
