@@ -1,0 +1,328 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "dissertation.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "common/data.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 65,
+                "EditorGroup": 0,
+                "FileName": "dissertation.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 86
+            },
+            {
+                "Col": 37,
+                "EditorGroup": 0,
+                "FileName": "common/setup.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 81
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "biblio/biblatex.tex",
+                "FirstLine": 10,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "biblio/predefined.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 65,
+                "EditorGroup": 0,
+                "FileName": "biblio/author.bib",
+                "FirstLine": 20,
+                "FoldedLines": "",
+                "Line": 36
+            },
+            {
+                "Col": 27,
+                "EditorGroup": 0,
+                "FileName": "biblio/registered.bib",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 16
+            },
+            {
+                "Col": 23,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/contents.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 5
+            },
+            {
+                "Col": 55,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/introduction.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 1
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/lists.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 3,
+                "EditorGroup": 0,
+                "FileName": "common/packages.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 104
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/dispackages.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/userpackages.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 2
+            },
+            {
+                "Col": 24,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/setup.tex",
+                "FirstLine": 68,
+                "FoldedLines": "",
+                "Line": 95
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "common/newnames.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 16,
+                "EditorGroup": 0,
+                "FileName": "common/data.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 43
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/conclusion.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "common/renames.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 57,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/userstyles.tex",
+                "FirstLine": 145,
+                "FoldedLines": "",
+                "Line": 186
+            },
+            {
+                "Col": 85,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/disstyles.tex",
+                "FirstLine": 18,
+                "FoldedLines": "",
+                "Line": 102
+            },
+            {
+                "Col": 27,
+                "EditorGroup": 0,
+                "FileName": "common/styles.tex",
+                "FirstLine": 102,
+                "FoldedLines": "",
+                "Line": 285
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "common/fonts.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/title.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 3
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/acronyms.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 152,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/dictionary.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 31
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/references.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 5
+            },
+            {
+                "Col": 62,
+                "EditorGroup": 0,
+                "FileName": "C:/Users/norri/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 68
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "C:/Users/norri/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty",
+                "FirstLine": 195,
+                "FoldedLines": "",
+                "Line": 265
+            },
+            {
+                "Col": 121,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/part9.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 15
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/part8.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 18,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/part7.tex",
+                "FirstLine": 435,
+                "FoldedLines": "",
+                "Line": 506
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/part8.aux",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 330
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "C:/Users/norri/AppData/Local/Programs/MiKTeX/tex/generic/soul/soulutf8.sty",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 28
+            },
+            {
+                "Col": 867,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/partReview.tex",
+                "FirstLine": 229,
+                "FoldedLines": "",
+                "Line": 237
+            },
+            {
+                "Col": 108,
+                "EditorGroup": 0,
+                "FileName": "common/characteristic.tex",
+                "FirstLine": 163,
+                "FoldedLines": "",
+                "Line": 39
+            },
+            {
+                "Col": 35,
+                "EditorGroup": 0,
+                "FileName": "biblio/external.bib",
+                "FirstLine": 76,
+                "FoldedLines": "",
+                "Line": 117
+            },
+            {
+                "Col": 63,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/part2.tex",
+                "FirstLine": 700,
+                "FoldedLines": "",
+                "Line": 746
+            },
+            {
+                "Col": 92,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/appendix.tex",
+                "FirstLine": 12,
+                "FoldedLines": "",
+                "Line": 33
+            },
+            {
+                "Col": 33,
+                "EditorGroup": 0,
+                "FileName": "Dissertation/part1.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 175
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "dissertation.bbl",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 17
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": true
+    }
+}
