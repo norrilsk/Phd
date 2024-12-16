@@ -29,7 +29,7 @@ VarKillB – множество переменных базового блока
 % Пример интервалов жизни для алгоритма распределения регистров 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } 
-	\caption{Пример интервалов жизни для алгоритма распределения регистров \cite{melnik2010case}.}\label{partReview:regalloc5}
+	\caption{Пример интервалов жизни для алгоритма распределения регистров \cite{melnik2010case}}\label{partReview:regalloc5}
 	
 	\begin{Verb}
 		0 MOV R0 0xac434   | R0 [0,10]
@@ -49,7 +49,7 @@ VarKillB – множество переменных базового блока
 % Первый шаг алгоритма распределения регистров для 3х физических регистров  
 \begin{ListingEnv}[!h]
 \captiondelim{ } 
-\caption{Первый шаг алгоритма распределения регистров для 3х физических регистров \cite{melnik2010case}.}\label{partReview:regalloc3}
+\caption{Первый шаг алгоритма распределения регистров для 3х физических регистров \cite{melnik2010case}}\label{partReview:regalloc3}
 
 \begin{Verb}
 		N INSN              R0  R1  R2  R3  R4  R5  R6
@@ -69,7 +69,7 @@ VarKillB – множество переменных базового блока
 % Результат тработы алгоритма распределения регистров
 \begin{ListingEnv}[!h]
 \captiondelim{ } 
-\caption{Результат работы алгоритма распределения регистров \cite{melnik2010case}.}\label{partReview:regalloc4}
+\caption{Результат работы алгоритма распределения регистров \cite{melnik2010case}}\label{partReview:regalloc4}
 
 \begin{Verb}
 		N  INSN              R0  R1  R2  R3  R4  R5  R6
@@ -103,7 +103,7 @@ VarKillB – множество переменных базового блока
 \end{itemize}
 \begin{ListingEnv}[!h]
 	\captiondelim{ } 
-	\caption{Базовый блок с излешней загрузкой из памяти \cite{melnik2010case}.}\label{partReview:regalloc1}
+	\caption{Базовый блок с излешней загрузкой из памяти \cite{melnik2010case}}\label{partReview:regalloc1}
 	
 	\begin{Verb}
 		
@@ -121,7 +121,7 @@ VarKillB – множество переменных базового блока
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } 
-	\caption{Базовый блок после исправления проблемы с целочисленной вероятностью \cite{melnik2010case}.}\label{partReview:regalloc2}
+	\caption{Базовый блок после исправления проблемы с целочисленной вероятностью \cite{melnik2010case}}\label{partReview:regalloc2}
 	
 	\begin{Verb}
 			L133:
@@ -148,7 +148,7 @@ VarKillB – множество переменных базового блока
  Так, например, в  листинге \ref{review_vec1} исполнение условия является управлением, препятствующим векторизации. 
   \begin{ListingEnv}[!h]
  	\captiondelim{ } % разделитель идентификатора с номером от наименования
- 	\caption{Пример цикла, содержащего управления.}\label{review_vec1}
+ 	\caption{Пример цикла, содержащего управления}\label{review_vec1}
  	
  	\begin{Verb}
  		int arr[n], a[n],  b[n], out[n];
@@ -168,7 +168,7 @@ VarKillB – множество переменных базового блока
  \begin{figure}[htbp]
  	\centering
  	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/vec_coverage.drawio.svg}
- 	\caption{Современное покрытие различными векторизаторами тестов TSVC \cite{brank2022assessing}.}
+ 	\caption{Современное покрытие различными векторизаторами тестов TSVC \cite{brank2022assessing}}
  	\label{partReview:vectorization}
  \end{figure}
  
@@ -183,14 +183,14 @@ VarKillB – множество переменных базового блока
  \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 395pt, inkscapelatex=false ]{SVG/prefetch_review.drawio.svg}
-	\caption{Пример задержек конвейера при отсутствии предзагрузки данных \cite{chai2021implementation}.}
+	\caption{Пример задержек конвейера при отсутствии предзагрузки данных \cite{chai2021implementation}}
 	\label{partReview:prefetch1}
 \end{figure}
 
  \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 395pt, inkscapelatex=false ]{SVG/prefetch_review2.drawio.svg}
-	\caption{Пример идеальной предзагрузки данных \cite{chai2021implementation}.}
+	\caption{Пример идеальной предзагрузки данных \cite{chai2021implementation}}
 	\label{partReview:prefetch2}
 \end{figure}
 
@@ -200,7 +200,7 @@ VarKillB – множество переменных базового блока
  \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/indirect_prefetch_review.drawio.svg}
-	\caption{Пример косвенной адресации данных.}
+	\caption{Пример косвенной адресации данных}
 	\label{partReview:prefetch3}
 \end{figure}
 Стоит также отметить возможность оптимизации для уменьшение потребления энергии, что является критическим в современных системах. В статье \cite{ekemark2016static} предлагается алгоритм версионирования кода для разных путей с точки зрения потока данных, что позволят сэкономить 10 \% энергии и увеличить производительность на 2 \%.
@@ -215,7 +215,7 @@ VarKillB – множество переменных базового блока
  \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/ml_for_compilers1.drawio.svg}
-	\caption{Общая схема автоматической настройки компилятора \cite{ashouri2018survey}.}
+	\caption{Общая схема автоматической настройки компилятора \cite{ashouri2018survey}}
 	\label{partReview:ml_for_comp1}
 \end{figure}
 
@@ -244,7 +244,7 @@ VarKillB – множество переменных базового блока
  \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/revirewFDO.drawio.svg}
-	\caption{Общая схема статической оптимизации с использованием профиля.}
+	\caption{Общая схема статической оптимизации с использованием профиля}
 	\label{partReview:fdo1}
 \end{figure}
 
@@ -254,7 +254,7 @@ VarKillB – множество переменных базового блока
 	\centerfloat{
 		\includegraphics[scale=0.4]{PNG/FDO2}
 	}
-	\caption{Схема системы автоматического сбора профиля и рекомпиляции \cite{chen2016autofdo}.}\label{partReview:fdo2}
+	\caption{Схема системы автоматического сбора профиля и рекомпиляции \cite{chen2016autofdo}}\label{partReview:fdo2}
 \end{figure}
 
 Сергей Лисицын  в своей диссертации \cite{SergeyL1} предлагает разрешить проблему зависимости профиля от входных данных с помощью версионирования отдельных участков программы, выбор между которыми делается динамически во время исполнения. Из минусов подобного решения можно отметить увеличение размеров исполняемого файла.
@@ -263,7 +263,7 @@ VarKillB – множество переменных базового блока
  \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/pgowithoutprofile.drawio.svg}
-	\caption{Схема компиляции с искусственным профилем.}
+	\caption{Схема компиляции с искусственным профилем}
 	\label{partReview:pgo_without profile}
 \end{figure}
 На рисунке \ref{partReview:pgo_without profile}а изображена тренировка модели, которая заблаговременно проводится разработчиками компилятора, а на рисунке \ref{partReview:pgo_without profile}б изображен рабочий режим, в котором работает компилятор, оказавшись у пользователя.

@@ -20,7 +20,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 	\centering
 
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/ifcvt-1.svg}
-	\caption{Пример некорректного преобразования условных переходов в следствие отсутствия SSA формы.}
+	\caption{Пример некорректного преобразования условных переходов в следствие отсутствия SSA формы}
 	\label{fig:ifcvtsvg1}
 \end{figure}
 
@@ -29,7 +29,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-		\caption{Пример "хвостовых"\  базовых блоков, которые будут оптимизированы предложенным улучшением преобразования условных переходов.}
+		\caption{Пример "хвостовых"\  базовых блоков, которые будут оптимизированы предложенным улучшением преобразования условных переходов}
 	\label{ifcvtcode1}
 	\begin{Verb}
 		4145bc:   ret
@@ -51,7 +51,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 Конечно же применение подобной трансформации сопряжено с определенными рисками уменьшения производительности. Повсеместное преобразование может привести к увеличенному давлению на регистровый файл, что в свою очередь приводит к излишнему использованию стека. Поэтому вводятся функции стоимости для данной оптимизации: главным, однако далеко не единственным критерием применения преобразования условных переходов является итоговый размер базового блока, в  разработанной модели, этот параметр может задаваться пользователем, однако на исследуемой машине эмпирически был выведен  ограничивающий размер  результирующего базового блока равный 48 инструкциям.
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Образец проверки из теста povray (трассировка лучей).}
+	\caption{Образец проверки из теста povray (трассировка лучей)}
 	\label{ifcvtcode2}
 	\begin{Verb}
 		if (lf == 0.0 || lf * f < 0)
@@ -64,7 +64,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Листинг \ref{ifcvtcode2} в представлении GIMPLE GCC.}
+	\caption{Листинг \ref{ifcvtcode2} в представлении GIMPLE GCC}
 	\label{ifcvtcode3}
 	\begin{Verb}
 		<bb 9> [local count: 118111600]:
@@ -93,7 +93,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Листинг \ref{ifcvtcode3} в представлении GIMPLE GCC после оптимизации преобразования условных переходов.}
+	\caption{Листинг \ref{ifcvtcode3} в представлении GIMPLE GCC после оптимизации преобразования условных переходов}
 	\label{ifcvtcode4}
 	\begin{Verb}
 		<bb 9> [local count: 118111600]:
@@ -119,7 +119,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/ifcvt2.drawio.svg}
-	\caption{Схема улучшения стоимостной эвристики в оптимизации преобразования условных переходов.}
+	\caption{Схема улучшения стоимостной эвристики в оптимизации преобразования условных переходов}
 	\label{ifcvt2svg1}
 \end{figure}
 
@@ -132,7 +132,7 @@ $$rename\_candidates = DEFS_{left\_bb} \cap USES_{right\_bb} $$
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Простой цикл рассматриваемый оптимизацией векторизации.}\label{algexample_1}
+	\caption{Простой цикл рассматриваемый оптимизацией векторизации}\label{algexample_1}
 	\begin{Verb}
 		\\ a,b,c: any arrays with size N
 		for (i = 0; i<N; i+=1)
@@ -197,7 +197,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Пример кода для векторизации из теста cube.}\label{cube_base_vec}
+	\caption{Пример кода для векторизации из теста cube}\label{cube_base_vec}
 	
 	\begin{Verb}
 		rho_f[idx1[2]][idx1[1]][idx1[0]] +=
@@ -235,7 +235,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 	\item \textbf{Перестановка инструкций}: Наивная группировка инструкций приводит к тому, что группа выражений из листинга \ref{cube_base_vec2} формирует два вектора \{\_35,\_33\} и \{\_147,\_35\}, однако в таком случае чаще лучше бы было сгруппировать их иначе: \{\_35,\_35\} и \{\_147,\_35\}. Новая группировка позволит использовать аппаратное умножение вектора на скаляр, что ускоряет итоговые вычисления, за счет экономии процесса сборки лишнего вектора.
 	\begin{ListingEnv}[!h]
 		\captiondelim{ } % разделитель идентификатора с номером от наименования
-		\caption{Выражения без перестановок.}\label{cube_base_vec2}
+		\caption{Выражения без перестановок}\label{cube_base_vec2}
 		
 		\begin{Verb}
 				stmt 0: _61 = _35* _147
@@ -350,7 +350,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 до внесенных изменений транслировалось в векторной версии в (Листинг \ref{unoptimal1}) может быть транслировано в (Листинг  \ref{optimal1})
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Пример неоптимального выбора инструкций №1.}\label{unoptimal1}
+	\caption{Пример неоптимального выбора инструкций №1}\label{unoptimal1}
 	
 	\begin{Verb}
 			xtn v18.4h, v17.4s
@@ -359,7 +359,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 \end{ListingEnv} 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Оптимальный выбор инструкций для Листинга \ref{unoptimal1}. }\label{optimal1}
+	\caption{Оптимальный выбор инструкций для Листинга \ref{unoptimal1} }\label{optimal1}
 	\begin{Verb}
 			uzp1 v17.8h, v18.8h, v17.8h
 	\end{Verb}
@@ -368,7 +368,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 Таким  же методом был преобразован код  (Листинг \ref{unoptimal2}) в более оптимальную версию, использующую инструкции smin/smax на (Листинг \ref{optimal2})
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Пример не оптимального выбора инструкций №2. }\label{unoptimal2}
+	\caption{Пример не оптимального выбора инструкций №2 }\label{unoptimal2}
 	\begin{Verb}
 			sshr v1.4s, v1.4s, #10
 			neg v24.4s, v1.4s
@@ -381,7 +381,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 \end{ListingEnv} 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Оптимальный выбор инструкций для Листинга \ref{unoptimal2}. }\label{optimal2}
+	\caption{Оптимальный выбор инструкций для Листинга \ref{unoptimal2} }\label{optimal2}
 	\begin{Verb}
 		movi v2.2d, #0x0 // (outside the loop)
 		movi v3.2d, #0xff000000ff // (outside the loop)
@@ -398,7 +398,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
  Высокоуровневые языки программирования, такие как Java, C++ и C\# и др. применяют динамические таблицы вызовов для реализации парадигмы полиморфизма\cite{calder1994quantifying,suganuma2000overview,bauer2021novt}.  В такой модели адрес вызываемой функции становится известным только во время исполнения программы. Виртуальные функции в объектно-ориентированных языках являются одним из основных источников косвенных переходов в программном коде. В языках C/C++ также можно использовать указатели на функции, а в GCC  существует отдельное расширение, которое позволяет пользователю брать адрес на метку в коде программы \cite{shah1995function}, что  позволяет пользователям создавать косвенные вызовы и переходы самостоятельно. 
  
  Несмотря на удобства во время написания программы, реализация переходов через косвенность  может замедлить работу центрального процессора, так как для эффективной обработки управляющих инструкций суперскалярному процессору необходимо предсказывать целевой адрес перехода. Для этого используются специальные устройства-предсказатели \cite{mcfarling1993combining,mittal2019survey}. Однако, реализация предсказателя косвенных переходов существенно разнится от предсказателя условных. В случае условного перехода существуют всего два конечных адреса передачи управления, но для косвенных переходов это не так, в следствие этого предсказателю приходится запоминать адреса перехода, что может существенно увеличить площадь, занимаемую предсказателем \cite{driesen1998accurate}. В литературе описывается принцип виртуального счетчика инструкций, однако это все еще требует дополнительной логики в аппаратуре \cite{redmond2007vpc}.
- Современные решения этой задачи в основном сосредоточены на разрешении вызовов виртуальных функций в контексте объектно-ориентированного программирования. Недостаток информации о целевых функциях в графе вызова затрудняет межпроцедурные оптимизации и делает невозможной подстановку функций непосредственно в код, что значительно ограничивает возможности компилятора для оптимизации. \cite{li2010lightweight,pande1996data}
+ Современные решения этой задачи в основном сосредоточены на разрешении вызовов виртуальных функций в контексте объектно-ориентированного программирования. Недостаток информации о целевых функциях в графе вызова затрудняет межпроцедурные оптимизации и делает невозможной подстановку функций непосредственно в код, что значительно ограничивает возможности компилятора для оптимизации \cite{li2010lightweight,pande1996data}.
 
 
 
@@ -416,7 +416,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 	\centerfloat{
 		\includegraphics[scale=1]{PNG/ICP}
 	}
-	\caption{Пример замены косвенного вызова.}\label{fig:ICP1}
+	\caption{Пример замены косвенного вызова}\label{fig:ICP1}
 \end{figure}
 
 С другой стороны динамический метод использует информацию, собранную во время выполнения программы \cite{baev2015profile,ishizaki2000study}, чтобы изменить косвенные переходы. При этом повторная компиляция программы не происходит. В этом состоит отличие от методов, использующих профилирование или системы JIT-компиляции (Just-in-Time compilation). 
@@ -435,7 +435,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Псевдокод преобразованного косвенного перехода.}\label{indirect_algo1}
+	\caption{Псевдокод преобразованного косвенного перехода}\label{indirect_algo1}
 	
 	\begin{Verb}
 		
@@ -472,7 +472,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Пример преобразованного на ходу косвенного перехода.}\label{indirect_algo2}
+	\caption{Пример преобразованного на ходу косвенного перехода}\label{indirect_algo2}
 	
 	\begin{Verb}
 		
@@ -512,7 +512,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 	\centerfloat{
 		\includegraphics[scale=0.6]{PNG/ICP2}
 	}
-	\caption{Результаты замеров производительности динамического подхода в зависимости от распределения количества целевых адресов.}\label{fig:ICP2}
+	\caption{Результаты замеров производительности динамического подхода в зависимости от распределения количества целевых адресов}\label{fig:ICP2}
 \end{figure}
 
 
@@ -522,7 +522,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/split_ldr.drawio.svg}
-	\caption{Два случая, когда использование широкого доступа в память приводит к замедлению.}
+	\caption{Два случая, когда использование широкого доступа в память приводит к замедлению}
 	\label{splitsvg1}
 \end{figure}
 
@@ -533,7 +533,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 300pt, inkscapelatex=false ]{SVG/wide_ldr.svg}
-	\caption{Схема алгоритма разделения сложных инструкций.}
+	\caption{Схема алгоритма разделения сложных инструкций}
 	\label{splitsvg2}
 \end{figure}
 
@@ -550,7 +550,7 @@ GCC преобразует этот цикл в (Листинг \ref{vectorized_
  
  \begin{ListingEnv}[!h]
  	\captiondelim{ } % разделитель идентификатора с номером от наименования
- 	\caption{Кандидат для векторизации "ленивых"\phantom{ } вычислений.}\label{lcv1}
+ 	\caption{Кандидат для векторизации "ленивых"\phantom{ } вычислений}\label{lcv1}
  	
  	\begin{Verb}
 ... code ...
@@ -568,7 +568,7 @@ if (arr[len] != const1 || arr[len +1] != const2
  \begin{figure}[htbp]
  	\centering
  	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/lcv.svg}
- 	\caption{Схема векторизации "ленивых"\phantom{ } вычислений.}
+ 	\caption{Схема векторизации "ленивых"\phantom{ } вычислений}
  	\label{lcv2}
  \end{figure}
  
@@ -583,7 +583,7 @@ $$add\phantom{ss}w0, w0, w3$$
 
  \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Пример исходного кода для оптимизации слияния "хвостов"\phantom{ }базовых блоков.}\label{tailmerge1}
+	\caption{Пример исходного кода для оптимизации слияния "хвостов"\phantom{ }базовых блоков}\label{tailmerge1}
 	
 	\begin{Verb}
          int foo(int a, int b, int r, int c, int x, int t)
@@ -609,7 +609,7 @@ $$add\phantom{ss}w0, w0, w3$$
 
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Ассемблер, полученный при компиляции листинга \ref{tailmerge1}  с помощью GCC.}\label{tailmerge2}
+	\caption{Ассемблер, полученный при компиляции листинга \ref{tailmerge1}  с помощью GCC}\label{tailmerge2}
 	\begin{Verb}
 			foo(int, int, int, int, int, int):
 			cmp     w0, 5
@@ -640,7 +640,7 @@ $$add\phantom{ss}w0, w0, w3$$
 \end{ListingEnv}
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Ассемблер, полученный при компиляции листинга \ref{tailmerge1}  с помощью clang.}\label{tailmerge3}
+	\caption{Ассемблер, полученный при компиляции листинга \ref{tailmerge1}  с помощью clang}\label{tailmerge3}
 	\begin{Verb}
 			foo(int, int, int, int, int, int):
 			cmp     w0, #5
@@ -676,14 +676,14 @@ $$add\phantom{ss}w0, w0, w3$$
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 300pt, inkscapelatex=false ]{SVG/indirect_prf1.drawio.svg}
-	\caption{Граф вызовов внутри основного цикла xz.}
+	\caption{Граф вызовов внутри основного цикла xz}
 	\label{optpref1}
 \end{figure}
 Благодаря анализу из главы \ref{opt:devirt} информация о всех кандидатоов для косвенных переходов была уже собрана, оставалось обнаружить цикл, вставить предзагрузку данных и проверку, подобную описанной в главе \ref{ch2:lcv}. Здесь также используется знание о механизме страничной адресации памяти: вставляется динамическая проверка, проверяющая, что необходимая для предзагрузки цепочка загрузок из памяти лежит в доступных страницах. Чтобы разъяснить это утверждение приведем простой пример, который является упрощенной версией кода приложения xz.
 
   \begin{ListingEnv}[!h]
  	\captiondelim{ } % разделитель идентификатора с номером от наименования
- 	\caption{Образец кода для анализа косвенной предзагрузки данных.}\label{ind_pref1}
+ 	\caption{Образец кода для анализа косвенной предзагрузки данных}\label{ind_pref1}
  	
  	\begin{Verb}
  	typedef struct A
@@ -716,7 +716,7 @@ $$add\phantom{ss}w0, w0, w3$$
   
     \begin{ListingEnv}[!h]
   	\captiondelim{ } % разделитель идентификатора с номером от наименования
-  	\caption{Листинг \ref{ind_pref1} после преобразования.}\label{ind_pref2}
+  	\caption{Листинг \ref{ind_pref1} после преобразования}\label{ind_pref2}
   	
   	\begin{Verb}
 	typedef struct A
@@ -774,7 +774,7 @@ $$add\phantom{ss}w0, w0, w3$$
 \begin{table} [htbp]
 	\centering
 	\begin{threeparttable}% выравнивание подписи по границам таблицы
-		\caption{Ускорение приложений "CPUBench fp"\phantom{} при компиляции с использованием профиля.}\label{op:pgo1}%
+		\caption{Ускорение приложений "CPUBench fp"\phantom{} при компиляции с использованием профиля}\label{op:pgo1}%
 		\begin{tabular}{| m{5cm} | m{8cm}l |}
 			\hline
 			\hline
@@ -814,7 +814,7 @@ $$add\phantom{ss}w0, w0, w3$$
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 450pt, inkscapelatex=false ]{SVG/FlowMLPGO1.drawio.svg}
-	\caption{Сбор данных для тренировки.}
+	\caption{Сбор данных для тренировки}
 	\label{op:mlpgo1}
 \end{figure}
 
@@ -823,14 +823,14 @@ $$add\phantom{ss}w0, w0, w3$$
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/FlowMLPGO2.drawio.svg}
-	\caption{Тренировка модели.}
+	\caption{Тренировка модели}
 	\label{op:mlpgo2}
 \end{figure}
 Наконец, обученная модель может прогнозировать вероятности  переходов  без использования каких-либо данных профиля, а проход ipa-smart-profile включает оптимизации с профилем. Библиотека \textbf{XGBoost} также имеет API на языке С, который позволяет интегрировать этап прогнозирования в проход без использования \textbf{Python}. Достаточно обучить модель один раз, чтобы потом использовать ее постоянно. Во время процесса компиляции анализ собирает информацию об условных переходах  внутри программы в векторе признаков и передает ее функции \textbf{XGBoost} для прогнозирования.
 \begin{figure}[htbp]
 	\centering
 	\includesvg[width = 400pt, inkscapelatex=false ]{SVG/FlowMLPGO3.drawio.svg}
-	\caption{Запуск модели во время компиляции целевого приложения.}
+	\caption{Запуск модели во время компиляции целевого приложения}
 	\label{op:mlpgo3}
 \end{figure}
 
@@ -839,14 +839,14 @@ $$add\phantom{ss}w0, w0, w3$$
 	\centerfloat{
 		\includegraphics[scale=0.9]{PNG/prediction}
 	}
-	\caption{S-кривая вероятностей предсказанных переходов на тестовом пакете ExeBench.}\label{fig:prediction1}
+	\caption{S-кривая вероятностей предсказанных переходов на тестовом пакете ExeBench}\label{fig:prediction1}
 \end{figure}
 
 
 \begin{table} [htbp]
 	\centering
 	\begin{threeparttable}% выравнивание подписи по границам таблицы
-		\caption{Ускорение приложений "CPUBench fp"\phantom{} при компиляции с использованием предсказанного с помощью решающих деревьев  профиля.}\label{op:pgo2}%
+		\caption{Ускорение приложений "CPUBench fp"\phantom{} при компиляции с использованием предсказанного с помощью решающих деревьев  профиля}\label{op:pgo2}%
 		\begin{tabular}{| m{5cm} | m{8cm}l |}
 			\hline
 			\hline
@@ -887,7 +887,7 @@ $$add\phantom{ss}w0, w0, w3$$
 В начале главы, в разделе \ref{opt:ifconv}, упоминались существенные преимущества преобразования условных переходов. Однако в этом разделе будет продемонстрирована в некотором смысле обратная оптимизация. Рассмотрим немного упрощенный пример из теста phyml на листинге \ref{opt:ifsplit1}.
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Пример кандидата для оптимизации разбиения условных выражений из теста phyml.}\label{opt:ifsplit1}
+	\caption{Пример кандидата для оптимизации разбиения условных выражений из теста phyml}\label{opt:ifsplit1}
 	\begin{Verb}
 		if(tree->mod->ns == 4 || tree->mod->ns == 20) {	
 			foo(tree);
@@ -898,7 +898,7 @@ $$add\phantom{ss}w0, w0, w3$$
 Дело в том, что такое выражение накладывает на переменную $ns$ ограничение ($ns==4$ или $ns==20$). К сожалению работа с такого рода решеткой очень затруднительна для оптимизации распространения констант. Поэтому предлагается облегчить работу таким проходам (локальному и глобальному  распространению константных выражений) трансформировав такой в листинг \ref{opt:ifsplit2}.
 \begin{ListingEnv}[!h]
 	\captiondelim{ } % разделитель идентификатора с номером от наименования
-	\caption{Преобразованный листинг \ref{opt:ifsplit2}.}\label{opt:ifsplit2}
+	\caption{Преобразованный листинг \ref{opt:ifsplit1}}\label{opt:ifsplit2}
 	\begin{Verb}
 		if(tree->mod->ns == 4) {	
 			foo(tree);
@@ -922,28 +922,28 @@ $$add\phantom{ss}w0, w0, w3$$
 	\centerfloat{
 		\includegraphics[scale=0.4]{PNG/speedup_combined3.png}
 	}
-	\caption{Результаты замеров производительности на тестах  пакета "CPUBench int"\phantom{}.}\label{fig:spubench_int_speedup}
+	\caption{Результаты замеров производительности на тестах  пакета "CPUBench int"\phantom{}}\label{fig:spubench_int_speedup}
 \end{figure}
 
 \begin{figure}[ht]
 	\centerfloat{
 		\includegraphics[scale=0.25]{PNG/spec_speedup.png}
 	}
-	\caption{Результаты замеров производительности на тестах пакета "SpecCPU int"\phantom{}.}\label{fig:spec_int_speedup}
+	\caption{Результаты замеров производительности на тестах пакета "SpecCPU int"\phantom{}}\label{fig:spec_int_speedup}
 \end{figure}
 
 \begin{figure}[ht]
 	\centerfloat{
 		\includegraphics[scale=0.5]{PNG/speedup_combined3_fp.png}
 	}
-	\caption{Результаты замеров производительности на тестах  пакета "CPUBench fp"\phantom{}.}\label{fig:pubench_fp_speedup}
+	\caption{Результаты замеров производительности на тестах  пакета "CPUBench fp"\phantom{}}\label{fig:pubench_fp_speedup}
 \end{figure}
 
 \begin{figure}[ht]
 	\centerfloat{
 		\includegraphics[scale=0.42]{PNG/spec_speedup_fp.png}
 	}
-	\caption{Результаты замеров производительности на тестах пакета "SpecCPU fp"\phantom{}.}\label{fig:spec_fp_speedup}
+	\caption{Результаты замеров производительности на тестах пакета "SpecCPU fp"\phantom{}}\label{fig:spec_fp_speedup}
 \end{figure}
 
 
