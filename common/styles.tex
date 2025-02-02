@@ -155,9 +155,9 @@
 %    pdfpagelabels=false,        % set PDF page labels (true|false)
     plainpages=false,           % Forces page anchors to be named by the Arabic form  of the page number, rather than the formatted form
     colorlinks,                 % ссылки отображаются раскрашенным текстом, а не раскрашенным прямоугольником, вокруг текста
-    linkcolor={linkcolor},      % цвет ссылок типа ref, eqref и подобных
-    citecolor={citecolor},      % цвет ссылок-цитат
-    urlcolor={urlcolor},        % цвет гиперссылок
+    linkcolor={black},      % цвет ссылок типа ref, eqref и подобных
+    citecolor={black},      % цвет ссылок-цитат
+    urlcolor={black},        % цвет гиперссылок
 %    hidelinks,                  % Hide links (removing color and border)
     pdftitle={\thesisTitle},    % Заголовок
     pdfauthor={\thesisAuthor},  % Автор
@@ -283,7 +283,7 @@
 
 %%% Команды рецензирования %%%
 \ifboolexpr{ (test {\ifnumequal{\value{draft}}{1}}) or (test {\ifnumequal{\value{showmarkup}}{1}})}{
-        \newrobustcmd{\todo}[1]{\textcolor{red}{#1}}
+        \newrobustcmd{\todo}[1]{\textcolor{black}{#1}}
         \newrobustcmd{\note}[2][]{\ifstrempty{#1}{#2}{\textcolor{#1}{#2}}}
         \newenvironment{commentbox}[1][]%
         {\ifstrempty{#1}{}{\color{#1}}}%
