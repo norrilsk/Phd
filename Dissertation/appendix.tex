@@ -1,8 +1,9 @@
 \chapter{Собираемые признаки, для задачи автоматического подбора вероятностей условного перехода} \label{app:A}
 \begin{table} [htbp]
 	\raggedright
+	
 	\begin{threeparttable}% выравнивание подписи по границам таблицы
-		\caption{Признаки базового блока собранные в компиляторе GCC}\label{op:pgo_geatures1}%
+		\caption*{Таблица А.1 --- Признаки базового блока собранные в GCC}\label{op:pgo_geatures1}%
 		\begin{tabular}{| m{3cm} | m{1cm} |  m{9cm}l |}
 			\hline
 			\hline
@@ -31,7 +32,7 @@
 \begin{table} [htbp]
 	\raggedright
 	\begin{threeparttable}% выравнивание подписи по границам таблицы
-		\caption{Признаки условного перехода собранные в компиляторе GCC}\label{op:pgo_geatures2}%
+		\caption*{Таблица А.2 --- Признаки условного перехода собранные в GCC}\label{op:pgo_geatures2}%
 		\begin{tabular}{| m{4cm} | m{2cm} |  m{9cm}l |}
 		\hline
 			\hline
@@ -61,16 +62,27 @@
 			\hline
 			\centering dom\_by\_right			 & \centering  Bool &    Доминирует ли базовый блок истинной дуги базовый блок с условием  & \\	
 			\hline
-			\centering current\_bb			 & \centering  Struct &    Признаки базового блока с условием, структура описана в таблице \ref{op:pgo_geatures1}  & \\	
+			\centering current\_bb			 & \centering  Struct &    Признаки базового блока с условием, структура описана в таблице А.1  & \\	
 			\hline
-			\centering left\_bb			 & \centering  Struct &     Признаки ложного базового блока, структура описана в таблице \ref{op:pgo_geatures1} & \\	
+			\centering left\_bb			 & \centering  Struct &     Признаки ложного базового блока, структура описана в таблице А.1 & \\	
 			\hline
-			\centering right\_bb			 & \centering  Struct &    Признаки истинного базового блока, структура описана в таблице \ref{op:pgo_geatures1} & \\	
+			\centering right\_bb			 & \centering  Struct &    Признаки истинного базового блока, структура описана в таблице А.1 & \\	
 			\hline
 			\hline
 		\end{tabular}
 	\end{threeparttable}
 \end{table}
+\chapter{Акты о внедрении} \label{app:B}
+	\begin{figure}[ht]
+	\centerfloat{
+		\includegraphics[scale=0.9]{PNG/Хуавей}
+	}
+	\end{figure}
+		\begin{figure}[ht]
+		\centerfloat{
+			\includegraphics[scale=0.9]{PNG/МФТИ}
+		}
+	\end{figure}
 %\chapter{Примеры вставки листингов программного кода}\label{app:A1}
 %
 %Для крупных листингов есть два способа. Первый красивый, но в нём могут быть

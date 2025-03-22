@@ -293,11 +293,11 @@ RATE =\left(\prod _{i=1}^{M}\dfrac{REF\_TIME_i}{MEDIAN(TIME_{i1}, TIME_{i2}, ...
 
 Чаще всего под обратной разработкой понимают исследование некоторого готового продукта с целью изучения его свойств. Конечно же в проделанной работе тоже имелся такой этап. Для целевого оптимизатора конкурентами являются такие компиляторы как LLVM Clang \cite{lattner2008llvm} и intel DPC++ \cite{castano2022evaluation}. Обратная разработка позволяет провести быстрый визуальный анализ сгенерированного кода и, что самое важное,  модифицировать его без необходимости перекомпиляции. Среди существующих популярных инструментов дизассемблера (IDA, Radare2, Ghidra и др. \cite{ferguson2008reverse, mester2023malware, jiang2022comprehensive}) был выбран radare2. Его преимуществами являются четкое описание установки на своей странице Github, наличие обширной документации и поддержки сообщества на своей странице Wikipedia и своей официальной электронной книге. Пример выводимой информации приложением radare2 можно увидеть на рисунке \ref{radare2}.
 
-\begin{figure}[htbp]
-	\centering
-	\includesvg[width = 500pt, inkscapelatex=false ]{SVG/gzip_longest_match.svg}
-	\caption{Базовые блоки горячего участка кода приложения gzip, полученные с помощью radare2}
-	\label{radare2}
+\begin{figure}[ht]
+	\centerfloat{
+		\includegraphics[scale=0.18]{PNG/gzip_longest_match}
+	}
+	\caption{Базовые блоки горячего участка кода приложения gzip, полученные с помощью radare2}\label{radare2}
 \end{figure}
 
 \section{Выводы по главе}
